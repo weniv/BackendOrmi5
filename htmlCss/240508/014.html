@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스이름</title>
+</head>
+<body>
+    <!-- 
+        데이터를 URL로 보내고 싶다면 GET방식을 사용
+        데이터를 숨겨서 보내고 싶다면 POST방식을 사용
+        ?email=hello%40gmail.com&password=1234&gender=male&html=on&css=on
+        
+        %40은 골뱅이 => URL인코딩
+        hello@gmail.com => hello%40gmail.com
+        hello world => hello%20world
+
+        https://www.urlencoder.org/ko/
+
+        인코딩: 우리가 원하는 방식으로 문자열을 변경
+        디코딩: 원본으로 복구
+    -->
+    <h1>서비스이름</h1>
+    <section>
+        <h2>로그인</h2>
+        <form action="" method="get">
+            <label for="user-email">이메일</label>
+            <input type="email" id="user-email" name="email">
+
+            <label for="user-password">비밀번호</label>
+            <input type="password" id="user-password" name="password">
+
+            <fieldset>
+                <legend>성별</legend>
+                <label for="user-male">남</label>
+                <input type="radio" id="user-male"    name="gender" value="male">
+                <label for="user-female">여</label>
+                <input type="radio" id="user-female"  name="gender" value="female">
+                <label for="user-nothing">선택안함</label>
+                <input type="radio" id="user-nothing" name="gender" value="nothing">
+            </fieldset>
+
+            <fieldset>
+                <legend>사용 기술</legend>
+                <label for="html">HTML</label>
+                <input type="checkbox" id="html" name="html">
+                <label for="css">css</label>
+                <input type="checkbox" id="css" name="css">
+                <label for="javascript">javascript</label>
+                <input type="checkbox" id="javascript" name="javascript">
+            </fieldset>
+
+            <button>회원가입</button>
+        </form>
+    </section>
+</body>
+</html>

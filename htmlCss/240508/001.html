@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <!--
+        form: 사용자가 입력한 데이터를 서버로 보내기 위한 양식
+        input: 사용자가 입력하는 부분
+        button: 사용자가 입력한 데이터를 서버로 보내는 버튼
+    -->
+    <!-- 
+    action: 내 요청을 처리할 주소, 비어있으면 나 자신
+    method: 요청을 무엇으로 보낼지(택배, 인편, 특급배송....)
+        get
+        post
+    -->
+    <!-- 보통 로그인은 POST로 처리, 여러분에게 설명을 위해 남겨둡니다. -->
+    <form action="" method="get">
+        <input type="text" name="id">
+        <input type="password" name="pw">
+        <button>로그인</button>
+    </form>
+    <!-- 이렇게 많이 사용합니다. -->
+    <form action="" method="get">
+        <input type="text" name="q">
+        <button>검색</button>
+    </form>
+    <!--
+        로그인 버튼을 누르니 아래와 같이 주소창에 나타남 
+        htmlCss/240508/001.html?id=aaa&pw=bbb
+        key1=value1&key2=value2&key3=value3의 양식으로 들어갑니다.
+
+        처리 절차
+        1. 로그인 버튼을 누르게 되면 브라우저에서 각각에 input의 name값과 value값을 가져와서 아래 패킷 데이터를 만듭니다.
+
+        GET /001.html?id=aaa&pw=bbb HTTP/1.1              # 요청라인
+        # ...여러 정보 생략...
+        host: 나자신
+
+        2. 이 패킷을 host로 보내서 처리합니다.
+
+        3. 그런데 처리해야 할 사람이 나 자신입니다. 그래서 나 자신에게 'htmlCss/240508/001.html?id=aaa&pw=bbb'이 뜨게 됩니다.
+
+        GET 방식의 장점과 단점
+        1. URL에 데이터가 노출되어 보안에 취약합니다. 예를 들어서 카페 같은 곳에 잠시 자리 비웠는데 누군가 훔쳐보면 어떻해요? URL은 기본적으로 도청이 됩니다.
+
+        2. 그래서 노출이 되도 되는 데이터들은 GET으로 하고 보통은 검색창들이 이 GET으로 처리됩니다.
+
+        3. 그러면 노출되어도 좋은 데이터는 무엇일까요? 그냥 다 post로 하면 안될까요? 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=weniv'처럼 공유했을 때 다른사람도 이 URL로 바로 접속해서 같은 결과를 볼 수 있습니다.
+
+        4. 그러나 검색 키워드를 GET으로 만드는 것이 절대적이진 않습니다. 예를 들어 정부의 부동산 서비스의 경우에는 검색 키워드도 POST로 처리합니다. 보안상 정보를 감춰야 할 때에는 POST를 사용합니다.
+    -->
+</body>
+</html>
