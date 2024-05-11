@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>static</title>
+    <style>
+        div {
+            position:static;
+            color:white;
+            width: 100px;
+            height: 100px;
+        }
+        .parent {
+            position: relative;
+        }
+        .box1 {
+            position: relative;
+            top: 10px;
+            left: 20px;
+            background-color: green;
+        }
+
+        .box2 {
+            position: absolute;
+            left: 30px;
+            background-color: red;
+        }
+
+        .box3 {
+            position: fixed;
+            background-color: blue;
+        }
+
+        .box4 {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="parent" style="left: 50px;">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+</div>
+
+</body>
+</html>

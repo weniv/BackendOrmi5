@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <style>
+        * {
+            font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+        }
+
+        p {
+            margin: 0;
+        }
+
+        img {
+            margin-right: 4px;
+        }
+
+        .log-in-area {
+            position: relative;
+            width: 350px;
+            height: 140px;
+            margin: 30px 25px;
+            border: 1px solid #DBDBDB;
+            border-radius: 5px;
+            background-color: #FFFFFF;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        .welcome-text {
+            position: absolute;
+            font-size: 12px;
+            top: 19px;
+            left: 16px;
+        }
+
+        .login-button {
+            position: absolute;
+            background-color: #711BFF;
+            color: #FFFFFF;
+            font-weight: 500;
+            top: 50px;
+            left: 16px;
+            width: 318px;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .bottom-menu {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            color: #767676;
+            font-weight: 400;
+            bottom: 18px;
+            left: 16px;
+            right: 16px;
+
+            & > section {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<main>
+    <div>
+        <article class="log-in-area">
+            <section>
+                <p class="welcome-text">
+                    더 편리해진 위니브에 오신 것을 환영합니다.
+                </p>
+            </section>
+            <section>
+                <button class="login-button">
+                    <img alt="위니브" src="weniv.svg"/>
+                    로그인
+                </button>
+            </section>
+            <section class="bottom-menu">
+                <section>
+                    <img alt="" src="icon-lock.svg"/>
+                    <p>아이디 | 비밀번호 찾기</p>
+                </section>
+                <section>
+                    <img alt="" src="icon-user.svg"/>
+                    <p>회원가입</p>
+                </section>
+            </section>
+        </article>
+    </div>
+</main>
+
+</body>
+</html>

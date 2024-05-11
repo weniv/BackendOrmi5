@@ -1,0 +1,41 @@
+.homework{
+    width: 337px;
+    height: 137px;
+    padding: 30px 25px 30px 25px;
+    gap: 0px;
+    opacity: 0px;
+    border:solid #DBDBDB;
+    padding:1em;
+
+
+}
+
+.login{
+    width: 318px;
+    height: 40px;
+    top: 50px;
+    left: 16px;
+    gap: 0px;
+    border-radius: 4px 0px 0px 0px;
+    opacity: 0px;
+    background-color:#711BFF;
+    color:#FFFFFF;
+    text-align: center;
+    line-height: 40px;
+    margin:16px;
+    font-size:12px;
+
+}
+
+
+.text{
+    margin:0px;
+    font-size: 12px;
+    margin:19px 50px 16px 16px;
+}
+
+.idpw{
+    font-size: 12px;
+    margin:0px;
+    margin:16px 0px 18px 16px;
+}

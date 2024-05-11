@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위니브 로그인</title>
+    <style>
+        /* 텍스트 숨김처리 코드 */
+        .txt-hide {
+            clip-path: inset(50%);
+            width: 1px;
+            height: 1px;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        /* 전체 컨테이너 스타일 */
+        .cont-login {
+            margin: 20px auto;
+            width: 350px;
+            padding: 18px 15px 17px;
+            border: 1px solid #DBDBDB;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .cont-login .txt-login {
+            font-size: 12px;
+            color: black;
+            margin: 0 0 16px;
+        }
+
+
+        /* 로그인 버튼 스타일 시작 */
+        .cont-login .link-login {
+            display: block;
+            padding: 13px 0 12px;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lights_of_Rockefeller_Center_during_sunset.jpg/1200px-Lights_of_Rockefeller_Center_during_sunset.jpg");
+            background-size:contain;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 17px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .link-login .img-login {
+            width: 57px;
+            height: 11px;
+            margin-right: 8px;
+        }
+
+        /* 로그인 버튼 스타일 끝 */
+
+
+        /* 하단 유틸리티 영역 스타일 시작 */
+        .cont-login .find {
+            display: inline-block;
+        }
+
+        .find .img-find {
+            vertical-align: top;
+        }
+
+        .find a {
+            margin: 0 2px 0 4px;
+        }
+
+        .find .link-id::before{
+            content:'';
+            width: 1px;
+            height: 11px;
+        }
+
+        /* 가상요소를 만들어 선을 그려줍니다. */
+        .find .link-id::after {
+            display: inline-block;
+            content: '';
+            width: 1px;
+            height: 11px;
+            background: #767676;
+            /* 상하 정렬을 조정해줍니다. 오직 inline, inline-block 요소에서만 작동합니다. */
+            vertical-align: -1px;
+            margin-left: 5px;
+        }
+
+        .find .link-pw {
+            margin: 0;
+        }
+
+        .find a,
+        .join a {
+            text-decoration: none;
+            color: #767676;
+            font-size: 12px;
+        }
+
+        .cont-login .join {
+            display: inline-block;
+            margin-left: 110px;
+        }
+
+        .join .img-join {
+            /* 상하 정렬을 조정해줍니다. 오직 inline, inline-block 요소에서만 작동합니다. */
+            vertical-align: top;
+        }
+
+        /* 하단 유틸리티 영역 스타일 끝 */
+    </style>
+</head>
+
+<body>
+    <article class="cont-login">
+        <h2 class="txt-hide">위니브 로그인</h2>
+        <p class="txt-login">더 편리해진 위니브에 오신 것을 환영합니다.</p>
+        <a href="#none" class="link-login"><img src="img_login/weniv-logo.png" alt="위니브" class="img-login">로그인</a>
+        <div class="find">
+            <img src="img_login/icon-lock.png" alt="" class="img-find">
+            <a href="#none" class="link-id">아이디</a>
+            <a href="#none" class="link-pw">비밀번호찾기</a>
+        </div>
+        <div class="join">
+            <img src="img_login/icon-user.png" alt="" class="img-join">
+            <a href="#none" class="link-join">회원가입</a>
+        </div>
+    </article>
+</body>
+
+</html>
