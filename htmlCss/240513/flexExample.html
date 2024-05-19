@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header{
+            background-color: black;
+            color:white;
+            padding: 20px;
+        }
+        .cont-wrapper{
+            display: flex;
+            flex-grow:1;
+        }
+        .cont-wrapper main{
+            flex-grow:1;
+            background-color: rosybrown;
+        }
+        .cont-wrapper aside{
+            /*flex-grow:1;*/
+            flex-basis: 100px;
+            background-color: royalblue;
+        }
+
+        footer{
+            background-color: teal;
+            color:white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <div class="cont-wrapper">
+        <main>main</main>
+        <aside>aside</aside>
+    </div>
+    <footer>footer</footer>
+
+    <script src="test.js">
+        console.log('hello world!!');
+    </script>
+</body>
+</html>

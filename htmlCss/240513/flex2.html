@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+
+    ul{
+        /*flex-direction: column;*/
+      display: flex;
+      height: 500px;
+      /*width: 500px;*/
+      background-color: royalblue;
+      list-style: none;
+      /*flex-wrap: wrap;*/
+        align-items: center;
+    }
+
+    li{
+        flex-basis: 100px;
+        flex-grow: 1;
+      /*width: 50px;*/
+        flex-shrink: 1;
+      height: 50px;
+      border:1px solid black;
+      background-color: teal;
+    }
+
+    .child{
+        /*flex-grow:2;*/
+        /*flex-basis: 200px;*/
+        flex-shrink: 2;
+        align-self:start;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li class="child">3</li>
+  <li>4</li>
+  <li>5</li>
+
+</ul>
+</body>
+</html>
