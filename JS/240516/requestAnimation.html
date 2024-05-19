@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function test(){
+        console.log('반복중입니다....');
+        window.requestAnimationFrame(test);
+    }
+
+    window.requestAnimationFrame(test);
+</script>
+</body>
+</html>

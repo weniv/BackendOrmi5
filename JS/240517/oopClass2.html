@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Body{
+        constructor() {
+            this.hp = 10;
+            this.power = 100;
+        }
+
+        walk(){
+            console.log('걷는중입니다.....');
+        }
+
+        attack(){
+            console.log('공격합니다!!!');
+        }
+    }
+
+    class Human extends Body{
+        constructor() {
+            super();
+            this.lang = 'korean';
+        }
+
+        talk(){
+            console.log('대화를 합니다.. 블라블라');
+        }
+
+        attack(){
+            console.log('공격합니다~~~~~!!!');
+        }
+
+
+    }
+</script>
+</body>
+</html>
