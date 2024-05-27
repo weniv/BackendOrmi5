@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>안녕하세여!</p>
+    <button>통신 시작!</button>
+<script>
+    let result;
+    function xhrRequest() {
+
+        const requestObj = new XMLHttpRequest();
+        requestObj.open('GET', 'message.txt');
+        requestObj.onreadystatechange = () => {
+            if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                result = requestObj.responseText;
+                console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+
+            }
+        };
+        requestObj.send();
+    }
+
+    xhrRequest();
+    console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+
+
+
+
+
+    // const result = xhrRequest();
+    //
+    // const result2 = xhrRequest();
+    //
+    // const total = result + result2;
+    //
+    //
+    //
+    //
+    // const btn = document.querySelector('button');
+    // btn.addEventListener('click', xhrRequest);
+    //
+    // // XHR 객체를 생성합니다.
+    // function xhrRequest(){
+    //     const requestObj = new XMLHttpRequest();
+    //     requestObj.open('GET', 'message.txt'); // 요청을 초기화합니다. 통신방법과 요청을 발신할 대상의 주소를 전달합니다.
+    //     requestObj.onreadystatechange = () => { // readystate 가 변화하면 실행되는 이벤트리스너 입니다.
+    //         if (requestObj.readyState === 4 && requestObj.status === 200) {
+    //             const result = requestObj.responseText;
+    //             document.querySelector('p').textContent = result;
+    //         }
+    //     };
+    //     requestObj.send(); // 서버로 요청을 보냅니다. send 메소드가 실행되어야만 우리가 위에서 설정한 내용들이 의미를 가지게 됩니다.
+    // }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul></ul>
+<button>생성버튼</button>
+
+
+<p id='myTxt'>hello lions</p>
+<img src='https://static.ebs.co.kr/images/public/lectures/2014/06/19/10/bhpImg/44deb98d-1c50-4073-9bd7-2c2c28d65f9e.jpg'>
+
+<script>
+    const target = document.querySelector('p');
+    const myimg = document.querySelector('img');
+    const idAttr = target.getAttribute('id');
+    console.log(idAttr);
+    myimg.setAttribute("class", "myClass");
+</script>
+
+<!--<script>-->
+<!--    const myBtn = document.querySelector("button");-->
+<!--    const myUl = document.querySelector("ul");-->
+
+<!--    myBtn.addEventListener('click', function(){-->
+<!--        for(let i=0; i < 5; i++){-->
+
+<!--            myUl.innerHTML = '<li><button>버튼</button></li>';-->
+
+<!--            const myLi = document.createElement('li');-->
+<!--            const btnDel = document.createElement('button');-->
+<!--            const btnTxt = document.createTextNode('버튼');-->
+
+<!--            btnDel.append(btnTxt);-->
+<!--            btnDel.addEventListener('click', ()=>{-->
+<!--                myLi.remove();-->
+<!--            });-->
+<!--            myLi.append('삭제하기: ', btnDel);-->
+<!--            myUl.appendChild(myLi);-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>

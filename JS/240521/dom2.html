@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p></p>
+<input type="text">
+<button>Write Something!</button>
+
+<ul></ul>
+<button>Make me MORE!</button>
+
+<div id="parentElement">
+    <span id="childElement">hello guys~</span>
+</div>
+
+<script>
+    const myBtn = document.querySelector("button");
+    const myP = document.querySelector("p");
+    const myInput = document.querySelector("input");
+
+    // myBtn.addEventListener('click', function(){
+    //     myP.textContent = myInput.value;
+    // });
+
+    myInput.addEventListener('input', ()=>{
+        myP.textContent = myInput.value;
+    });
+
+
+    // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동합니다.
+
+    const span = document.createElement("span");
+    const sibling = document.getElementById("childElement");
+    const parentDiv = document.getElementById("parentElement");
+    parentDiv.insertBefore(span, sibling);
+
+
+    // const myBtn = document.querySelector("button");
+    // const myUl = document.querySelector("ul");
+    //
+    // myBtn.addEventListener('click', function(){
+    //     for(let i=0; i < 5; i++){
+    //         const myLi = document.createElement('li');
+    //         const btnDel = document.createElement('button');
+    //         const btnTxt = document.createTextNode('버튼');
+    //
+    //         btnDel.append(btnTxt);
+    //         btnDel.addEventListener('click', ()=>{
+    //             myLi.remove();
+    //         });
+    //         myLi.append('삭제하기: ', btnDel);
+    //         myUl.appendChild(myLi);
+    //     }
+    // });
+
+    //
+    // myBtn.addEventListener('click', function(){
+    //     for(let i=0; i < 5; i++){
+    //         const myLi = document.createElement('li');
+    //         myUl.appendChild(myLi);
+    //     }
+    // })
+</script>
+</body>
+</html>

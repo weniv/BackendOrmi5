@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict';
+
+    class UserStorage {
+        // 유저를 검색하는 메소드
+        async searchUser(userName, password) {
+            //  이제 fetch의 결과물을 then, catch로 받을 필요가 사라집니다. 대신 try-catch 문을 사용합니다.
+
+            try {
+                const response = await fetch('users.json'); // 사용자 정보를 가져오기 위한 API 호출
+                if (!response.ok) {
+                    throw new Error(`HTTP ERROR!! State: ${response.status}`);
+                }
+                const data = await response.json(); // API 응답 데이터를 JSON 객체로 파싱. .json은 프로미스를 반환하기 때문에 비동기로 작동합니다.
+
+                const result = data.user.find(item => { // 사용자 정보가 있는지 확인
+                    return item.userName === userName && item.password === password
+                });
+
+                if (!result) {
+                    throw new Error('user not found');
+                }
+                return userName;
+
+            } catch (error) {
+                console.error('유저를 찾는중에 에러가 발생했습니다.:', error);
+                // 에러를 던져야 부모 try문 안에서 코드의 실행이 종료되고 catch 문으로 넘어갑니다.
+                throw error
+            }
+        }
+
+        // 유저에 맞는 인사말을 출력하는 메소드
+        async sayHi(user) {
+            try {
+                const response = await fetch('greetings.json'); // 인사말 정보를 가져오기 위한 API 호출
+                const data = await response.json(); // API 응답 데이터를 JSON 객체로 파싱
+
+                const result = data.greetings.find(item => { // 사용자 정보가 있는지 확인
+                    return item.userName === user
+                });
+
+                if (!result) {
+                    throw new Error('no greetings'); // 인사말 정보가 없을 경우, 에러 발생
+                }
+
+                return result;
+
+            } catch (error) {
+                console.error('인사말을 찾는중에 에러가 발생했습니다.:', error);
+                throw error
+            }
+        }
+    }
+
+    // 인스턴스를 만들고
+    const userStorage = new UserStorage();
+
+    // 사용자 입력을 받습니다.
+    const userName = prompt('이름를 입력하세요');
+    const password = prompt('등록한 비밀번호를 입력하세요');
+
+    // async/await 를 사용하여 비동기적으로 처리하며, try/catch 문으로 예외 처리한다.
+    async function sayHello() {
+        try {
+            const result = await userStorage.searchUser(userName, password); // 사용자 검색 메소드 호출
+
+            const user = await userStorage.sayHi(result); // 사용자 인사말 출력 메소드 호출
+
+            alert(`당신에게 인사합니다. ${user.userName}님 ${user.greetings}`); // 최종 결과 출력
+
+        } catch (error) {
+            console.error('통신 에러가 발생했습니다.:', error.message);
+        }
+    };
+
+    sayHello();
+</script>
+</body>
+
+</html>

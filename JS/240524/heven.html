@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict';
+
+    class UserStorage {
+        // 유저를 검색
+        searchUser(userName, password) {
+
+            // 프로미스 객체를 반환하도록 생성자로 감싸도록 하겠습니다.
+            return new Promise((resolve, reject) => {
+
+                const requestObj = new XMLHttpRequest();
+                requestObj.open('GET', 'users.json');
+                requestObj.onreadystatechange = () => {
+
+                    // 두 개의 if 문으로 분리한 이유는 readyState 가 계속해서 바뀌기 때문에, 일단 4인 상태에서 서버의 응답 값을 확인하기 위해서
+                    if (requestObj.readyState === 4) {
+                        if (requestObj.status === 200) {
+
+                            const result = JSON.parse(requestObj.responseText).user.find(item => {
+                                return item.userName === userName && item.password === password
+                            });
+
+                            // 일치하는 데이터가 존재한다면
+                            // if (result) {
+                            //     onSuccess(userName);
+                            //     // 일치하는 데이터가 없다면 에러처리
+                            // } else {
+                            //     onError(new Error('user not found'));
+                            // }
+
+                            // 사용자가 입력한 정보와 일치하는 유저가 존재한다면
+                            if (result) {
+                                // 콜백 함수를 실행하지 않고 resolve 와 reject를 실행하도록 합니다.
+                                resolve(userName);
+                            } else {
+                                reject(new Error('user not found'));
+                            }
+                        } else {
+                            reject(new Error('network error!'));
+                        }
+                    }
+                };
+                requestObj.send(); // 서버로 데이터를 보냅니다.
+            })
+
+        }
+
+        // 유저에 맞는 인사말을 출력
+        sayHi(user) {
+            return new Promise((resolve, reject) => {
+                // ajax 요청 시작
+                const requestObj = new XMLHttpRequest();
+                requestObj.open('GET', 'greetings.json'); //요청 시작
+                requestObj.onreadystatechange = () => { // readystate 가 변화하면 실행
+                    if (requestObj.readyState === 4) {
+                        if (requestObj.status === 200) {
+
+                            // 인사말 데이터에 사용자가 입력한 유저이름이 일치하는게 있는지 찾습니다.
+                            const result = JSON.parse(requestObj.responseText).greetings.find(item => {
+                                return item.userName === user
+                            });
+
+                            // 유저의 인사말이 있다면
+                            if (result) {
+                                resolve(result);
+                            }
+                        } else {
+                            reject(new Error('network error!'));
+                        }
+                    }
+                };
+                requestObj.send(); // 서버로 데이터를 보냅니다.
+
+            });
+        }
+    }
+
+    // 인스턴스를 만들고
+    const userStorage = new UserStorage();
+
+    // 사용자 입력을 받습니다.
+    const userName = prompt('이름를 입력하세요');
+    const password = prompt('등록한 비밀번호를 입력하세요');
+
+    userStorage.searchUser(userName, password)
+        // searchUser의 resolve 함수가 실행되었다면
+        .then((result) => { return userStorage.sayHi(result) })
+        // sayHi resolve 함수가 실행되었다면
+        .then((result) => {
+            alert(`당신에게 인사합니다. ${result.userName}님 ${result.greetings}`);
+            // reject 가 실행되었다면
+        }).then(()=>{
+
+        }).then(()=>{
+
+        }).then(()=>{
+
+        })
+        .catch((errorMsg) => {
+            console.error(errorMsg);
+        });
+
+
+    // searchUser 함수는 네개의 인자를 받습니다. 유저이름, 패스워드, 유저찾기가 성공하면 실행할 함수, 실패하면 실행할 함수
+
+    // userStorage.searchUser(
+    //     userName,
+    //     password,
+    //     name => {
+    //         // sayHi 함수는 세개의 인자를 받습니다. 유저이름, 인사말 찾기가 성공하면 실행할 함수, 실패하면 실행할 함수
+    //         userStorage.sayHi(
+    //             name,
+    //             result => {
+    //                 alert(`당신에게 인사합니다. ${result.name}님 ${result.greetings}`);
+    //             },
+    //             error => {
+    //                 console.log(error);
+    //             }
+    //         );
+    //     },
+    //     error => {
+    //         console.log(error);
+    //     }
+    // );
+
+</script>
+</body>
+
+</html>

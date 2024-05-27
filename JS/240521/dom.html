@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button.blue{
+            background-color: blue;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--hello-->
+    <header>
+        <nav>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </nav>
+    </header>
+    <h1 id="hello">
+        hello world
+        <article class="hidden">
+            article
+        </article>
+    </h1>
+    <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequuntur explicabo hic necessitatibus recusandae sint, sit voluptates! Adipisci, asperiores aut cumque eius eos est fuga fugit iste natus, rerum sint.</p>
+    <footer>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt expedita hic officia quia sit voluptas. Aperiam architecto asperiores ducimus eum, magnam natus officia suscipit. Distinctio reiciendis reprehenderit tempore tenetur veniam.
+    </footer>
+    <button class="blue">button</button>
+    <script>
+        const myBtn = document.querySelector("button");
+        // const article = document.querySelector('article');
+        const myArticle = document.createElement('article');
+        myBtn.addEventListener('click', function(){
+            document.querySelector('#hello').appendChild(myArticle);
+        });
+    </script>
+</body>
+</html>
